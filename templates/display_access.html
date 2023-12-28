@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Records</title>
+</head>
+<body>
+    <center>
+        <h1>display_access</h1>
+        <table border="2px">
+            <tr>
+                <th>pk</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Date</th>
+            </tr>
+
+            {% for ao in access %}
+
+                <tr>
+                    <th>{{ ao.pk }}</th>
+                    <th>{{ ao.name }}</th>
+                    <th>{{ ao.author }}</th>
+                    <th>{{ ao.date }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+    
+</body>
+</html>
