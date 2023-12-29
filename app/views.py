@@ -55,3 +55,35 @@ def insert_access(request):
 
         return render(request,'display_access.html',d1)
     return render(request,'insert_access.html',d)
+
+def select_multiple_webpage(request):
+    QLTO=Topic.objects.all()
+    d={'topics':QLTO}
+    
+    if request.method=='POST':
+        topiclist=request.POST.getlist('tn')
+       
+        QLWO=Webpage.objects.none()
+        for topic in topiclist:
+            QLWO=QLWO|Webpage.objects.filter(topic_name=topic)       
+        
+        d1={'webpages':QLWO}
+        return render(request,'display_webpage.html',d1)
+    return render(request,'select_multiple_webpage.html',d)
+
+
+def select_multiple_access(request):
+    QLWO=Webpage.objects.all()
+    d={'webpages':QLWO}
+
+    if request.method=='POST':
+        namelist=request.POST.getlist('n')
+
+        QLAO=AccessRecord.objects.none()
+        for i in namelist:
+            QLAO=QLAO|AccessRecord.objects.filter(pk=i)
+        
+        d1={'access':QLAO}
+        return render(request,'display_access.html',d1)
+        
+    return render(request,'select_multiple_access.html',d)

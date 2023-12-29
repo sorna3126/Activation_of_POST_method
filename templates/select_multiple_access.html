@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Records</title>
+</head>
+<body>
+    <center>
+        <h1>select_multiple_access</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <label for="n">Name</label>
+            <select name="n" id="n" multiple>
+                {% for wo in webpages %}
+                <option value="{{wo.pk}}">{{wo.pk}}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <input type="submit" value="select_multiple_access">
+
+        </form>
+    </center>
+    
+</body>
+</html>

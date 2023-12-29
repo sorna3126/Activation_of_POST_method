@@ -23,4 +23,6 @@ urlpatterns = [
     path('insert_topic/',insert_topic,name='insert_topic'),
     path('insert_webpage/',insert_webpage,name='insert_webpage'),
     path('insert_access/',insert_access,name='insert_access'),
+    path('select_multiple_webpage/',select_multiple_webpage,name='select_multiple_webpage'),
+    path('select_multiple_access/',select_multiple_access,name='select_multiple_access'),
 ]
