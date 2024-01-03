@@ -87,3 +87,9 @@ def select_multiple_access(request):
         return render(request,'display_access.html',d1)
         
     return render(request,'select_multiple_access.html',d)
+
+
+def checkbox(request):
+    QLTO=Topic.objects.all()
+    d={'topics':QLTO}
+    return render(request,'checkbox.html',d)
